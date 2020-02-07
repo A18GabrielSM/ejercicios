@@ -25,6 +25,8 @@ class LibraryBook(models.Model):
         ('lost', 'Lost')],
         'State', default="draft")
 
+    #Meter el metodo aqui
+
     @api.model
     def is_allowed_transition(self, old_state, new_state):
         allowed = [('draft', 'available'),
