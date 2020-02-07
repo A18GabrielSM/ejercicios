@@ -9,7 +9,7 @@
             "type": "python",
             "request": "attach",
             "port": 5678,
-            "host": "192.168.100.15",
+            "host": "192.168.100.14",
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",
