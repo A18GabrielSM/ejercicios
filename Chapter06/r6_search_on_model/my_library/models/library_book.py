@@ -108,3 +108,15 @@ class LibraryMember(models.Model):
     date_end = fields.Date('Termination Date')
     member_number = fields.Char()
     date_of_birth = fields.Date('Date of birth')
+
+class LibraryLoan(models.Model):
+    _name = 'library.loan'
+    _rec_name = 'book_id'
+
+    member_id = fields.Many2one('library.member', required=True)
+    book_id = fields.Many2one('library.book', required=True)
+    date_start = fields.Date('Fecha Inicio', default=datetime.date.today())
+    date_end = fields.Date('Fecha Fin', default=datetime.date.today() + datetime.timedelta(days=5))
+    member_image = fields.Binary('Member Image', related='member_id.partner_id.image')
+    _order = 'date_end desc'
+
